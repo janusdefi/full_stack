@@ -29,6 +29,7 @@ janus-protocol/
 │       │   ├── FXSwapPanel.jsx
 │       │   ├── YieldAnalytics.jsx
 │       │   └── ProofOfReserves.jsx
+│       │   └── TransparencyPanel.jsx
 │       ├── pages/
 │       │   ├── Dashboard.jsx
 │       ├── App.jsx

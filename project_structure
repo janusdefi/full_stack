@@ -1,54 +1,54 @@
 janus-protocol/
-├── contracts/                  # Solidity smart contracts (JNS/JNA/JNO, Vaults, Factory)
-│   └── hardhat.config.js
-│   └── JNS.sol
-│   └── JNA.sol
-│   └── JNO.sol
-│   └── VaultManager.sol
-│   └── StablecoinFactory.sol
-├── ai-engine/                  # AI risk modeling
-│   ├── app.py                    # FastAPI app entrypoint
-│   ├── db.py                     # MySQL database connection via SQLAlchemy
-│   ├── models.py                 # ORM models for vaults, tokens, prices
-│   ├── services/
-│      └── stabilizer.py         # AI logic to evaluate and adjust collateral ratios
-│      └──  fx_manager.py       # FX arbitrage logic (FastAPI)
-│      └──  yield_optimizer.py
-│   ├── routes/
-│      └── stabilization.py      # API endpoints for the stabilizer
-│      └── fx.py      # API endpoints for the stabilizer
-│      └── yield.py      # API endpoints for the stabilizer
-│   ├── schemas.py                # Pydantic request/response models
-│   ├── config.py                 # Env + MySQL settings
-│   ├── requirements.txt          # Python dependencies
-├── dashboard/                  # React-based UI
-│   ├── public/
-│   ├── src/
-│       ├── components/
-│       │   ├── VaultHealthCard.jsx
-│       │   ├── FXSwapPanel.jsx
-│       │   ├── YieldAnalytics.jsx
-│       │   └── ProofOfReserves.jsx
-│       │   └── TransparencyPanel.jsx
-│       ├── pages/
-│       │   ├── Dashboard.jsx
-│       ├── App.jsx
-│       ├── main.jsx
-│   ├── tailwind.config.js
-│   ├── index.html
-│   ├── package.json
-├── scripts/                    # DevOps, deployment, automation
-│   ├── init_db.sql
-│   ├── init_db.py
-│   ├── deploy_contracts.js     #Hardhat
-├── tests/                      # Unit & integration tests
-│   ├── VaultManager.test.js
-│   ├── test_stabilizer.py
-│   ├── test_fx_manager.py
-│   ├── test_yield_optimizer.py
-│   ├── test_jns.js
-│   ├── test_ai_engine.py
-│   ├── test_yield_logic.py
-└── README.md
-└── docker-compose.yml
-└── .env
+├── contracts/                  # Contains Solidity smart contracts for the protocol
+│   └── hardhat.config.js       # Hardhat configuration file for deploying and testing contracts
+│   └── JNS.sol                 # Solidity contract for the JNS token
+│   └── JNA.sol                 # Solidity contract for the JNA token
+│   └── JNO.sol                 # Solidity contract for the JNO token
+│   └── VaultManager.sol        # Manages vaults and collateralization logic
+│   └── StablecoinFactory.sol   # Factory contract for creating stablecoins
+├── ai-engine/                  # AI-based risk modeling and stabilization logic
+│   ├── app.py                  # Entry point for the FastAPI application
+│   ├── db.py                   # Handles MySQL database connection using SQLAlchemy
+│   ├── models.py               # Defines ORM models for vaults, tokens, and price data
+│   ├── services/               # Contains service modules for AI logic
+│      └── stabilizer.py        # Implements AI logic for collateral ratio adjustments
+│      └── fx_manager.py        # Handles foreign exchange (FX) arbitrage logic
+│      └── yield_optimizer.py   # Optimizes yield strategies for the protocol
+│   ├── routes/                 # API route definitions for the FastAPI app
+│      └── stabilization.py     # API endpoints for stabilization-related operations
+│      └── fx.py                # API endpoints for foreign exchange operations
+│      └── yield.py             # API endpoints for yield optimization
+│   ├── schemas.py              # Defines Pydantic models for request/response validation
+│   ├── config.py               # Configuration file for environment variables and MySQL settings
+│   ├── requirements.txt        # Lists Python dependencies for the AI engine
+├── dashboard/                  # Frontend dashboard built with React
+│   ├── public/                 # Static assets for the React app
+│   ├── src/                    # Source code for the React app
+│       ├── components/         # Reusable UI components
+│       │   ├── VaultHealthCard.jsx  # Displays health metrics for vaults
+│       │   ├── FXSwapPanel.jsx      # UI for foreign exchange swaps
+│       │   ├── YieldAnalytics.jsx   # Displays analytics for yield optimization
+│       │   └── ProofOfReserves.jsx  # Shows proof-of-reserves data for transparency
+│       │   └── TransparencyPanel.jsx # Panel for displaying AI transparency information (what decisions were made and how)
+│       ├── pages/              # Page-level components for the React app
+│       │   ├── Dashboard.jsx   # Main dashboard page
+│       ├── App.jsx             # Root component for the React app
+│       ├── main.jsx            # Entry point for rendering the React app
+│   ├── tailwind.config.js      # Tailwind CSS configuration file
+│   ├── index.html              # HTML template for the React app
+│   ├── package.json            # Node.js dependencies and scripts for the React app
+├── scripts/                    # Scripts for DevOps, deployment, and automation
+│   ├── init_db.sql             # SQL script for initializing the database schema
+│   ├── init_db.py              # Python script for initializing the database
+│   ├── deploy_contracts.js     # Hardhat script for deploying smart contracts
+├── tests/                      # Unit and integration tests for the protocol
+│   ├── VaultManager.test.js    # Tests for the VaultManager smart contract
+│   ├── test_stabilizer.py      # Tests for the stabilizer AI logic
+│   ├── test_fx_manager.py      # Tests for the FX manager logic
+│   ├── test_yield_optimizer.py # Tests for the yield optimizer logic
+│   ├── test_jns.js             # Tests for the JNS token contract
+│   ├── test_ai_engine.py       # Tests for the AI engine components
+│   ├── test_yield_logic.py     # Tests for yield-related logic
+└── README.md                   # Documentation for the project
+└── docker-compose.yml          # Docker Compose configuration for running the project
+└── .env                        # Environment variables for the project

@@ -1,0 +1,53 @@
+janus-protocol/
+├── contracts/                  # Solidity smart contracts (JNS/JNA/JNO, Vaults, Factory)
+│   └── hardhat.config.js
+│   └── JNS.sol
+│   └── JNA.sol
+│   └── JNO.sol
+│   └── VaultManager.sol
+│   └── StablecoinFactory.sol
+├── ai-engine/                  # AI risk modeling
+│   ├── app.py                    # FastAPI app entrypoint
+│   ├── db.py                     # MySQL database connection via SQLAlchemy
+│   ├── models.py                 # ORM models for vaults, tokens, prices
+│   ├── services/
+│      └── stabilizer.py         # AI logic to evaluate and adjust collateral ratios
+│      └──  fx_manager.py       # FX arbitrage logic (FastAPI)
+│      └──  yield_optimizer.py
+│   ├── routes/
+│      └── stabilization.py      # API endpoints for the stabilizer
+│      └── fx.py      # API endpoints for the stabilizer
+│      └── yield.py      # API endpoints for the stabilizer
+│   ├── schemas.py                # Pydantic request/response models
+│   ├── config.py                 # Env + MySQL settings
+│   ├── requirements.txt          # Python dependencies
+├── dashboard/                  # React-based UI
+│   ├── public/
+│   ├── src/
+│       ├── components/
+│       │   ├── VaultHealthCard.jsx
+│       │   ├── FXSwapPanel.jsx
+│       │   ├── YieldAnalytics.jsx
+│       │   └── ProofOfReserves.jsx
+│       ├── pages/
+│       │   ├── Dashboard.jsx
+│       ├── App.jsx
+│       ├── main.jsx
+│   ├── tailwind.config.js
+│   ├── index.html
+│   ├── package.json
+├── scripts/                    # DevOps, deployment, automation
+│   ├── init_db.sql
+│   ├── init_db.py
+│   ├── deploy_contracts.js     #Hardhat
+├── tests/                      # Unit & integration tests
+│   ├── VaultManager.test.js
+│   ├── test_stabilizer.py
+│   ├── test_fx_manager.py
+│   ├── test_yield_optimizer.py
+│   ├── test_jns.js
+│   ├── test_ai_engine.py
+│   ├── test_yield_logic.py
+└── README.md
+└── docker-compose.yml
+└── .env
